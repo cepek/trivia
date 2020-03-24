@@ -13,4 +13,4 @@ then
 fi
 
 DIRNAME=$(echo $1 | sed 's:/*$::')
-zip ${DIRNAME}.zip -x '*.user*'  -r ${DIRNAME}
+zip ${DIRNAME}.zip -x '*.user*' -x '*~'  -r ${DIRNAME}
