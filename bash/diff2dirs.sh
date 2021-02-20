@@ -2,15 +2,19 @@
 
 # run from github qgama repository
 
+OPTS="";
+for opt in "$@"
+do
+    OPTS="${OPTS}  $opt"
+done
+
 compare() {
-    echo -n "  " "$1" " "
+    echo "  " "$1" " "
 
     for i in `find -name  "$1" | grep -v ./build | grep -v ./gama/`;
     do
-	diff $i ../gama-qt/rw/$i;  # relative path to GNU git repository
-	echo -n .
+	diff ${OPTS} $i ../gama-qt/rw/$i;  # relative path to GNU git repository
     done
-    echo
 }
 
 echo
