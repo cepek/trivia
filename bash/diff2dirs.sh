@@ -5,8 +5,14 @@
 OPTS="";
 for opt in "$@"
 do
+    if [ "$opt" = "-h" ];  then
+	echo $0 " [ -q | -u | -s]" ;
+	exit 1;
+    fi
+    echo
     OPTS="${OPTS}  $opt"
 done
+
 
 compare() {
     echo "  " "$1" " "
