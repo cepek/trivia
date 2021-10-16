@@ -33,7 +33,7 @@ int main(int argc, char* argv[])
   std::istringstream istrs(buf);
   std::string word;
   istrs >> word;
-  outs  << word;
+  if (istrs >> word) outs  << word;
 
   while (istrs >> word) {
       if (word.length() > 3) {
@@ -45,7 +45,7 @@ int main(int argc, char* argv[])
         }
       outs << ' ' << word;
     }
-  outs << '\n';
+  if (word.size()) outs << '\n';
 
   return 0;
 }
